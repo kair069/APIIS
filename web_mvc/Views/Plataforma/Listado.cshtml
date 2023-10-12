@@ -1,0 +1,49 @@
+﻿@model IEnumerable<web_mvc.Models.Solicitud>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fsolicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.desact)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fsolicitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desact)
+            </td>
+            <td>
+                @Html.ActionLink("Actualizar", "Edit", new { id=item.nsolicitud })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

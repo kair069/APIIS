@@ -1,0 +1,52 @@
+﻿@model web_mvc.Models.Solicitud
+
+<h1> @ViewBag.titulo</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="@ViewBag.titulo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nsolicitud" class="control-label"></label>
+                <input asp-for="nsolicitud" class="form-control" readonly="readonly"/>
+                <span asp-validation-for="nsolicitud" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="dni" class="control-label"></label>
+                <input asp-for="dni" class="form-control" />
+                <span asp-validation-for="dni" class="text-danger"></span>
+            </div>
+     
+             <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+     
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+     
+            <div class="form-group">
+                <label asp-for="idact" class="control-label"></label>
+                <select asp-for="idact" asp-items="@ViewBag.actividades" class="form-select" ></select>
+                <span asp-validation-for="idact" class="text-danger"></span>
+            </div>
+     
+            <div class="form-group">
+                <input type="submit" value="Grabar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Retornar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    @ViewBag.mensaje
+</div>
+<br/>
+<br/>
+<div>
+    <!--agregar la vista parcial-->
+    @Html.Partial("Listado",(List<Solicitud>)ViewBag.solicitudes)
+</div>
